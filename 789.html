@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://prod.txqweb.rrd.com/AvivaTxQUCWeb/report -->
+<html ng-app="txq" ng-controller="ApplicationController as appCtrl" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<base href="/AvivaTxQUCWeb/">--><base href=".">
+    <link rel="icon" href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/favicon.ico?v=1.0" type="image/x-icon">
+    <title ng-bind="&#39;TxQ UC Web - &#39; + Application.Page.Title" class="ng-binding">TxQ UC Web - User Reports</title>
+    <link href="./789_files/css" rel="stylesheet">
+
+</head>
+<body>
+    
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/">TxQ User Console Web</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/connect">Change Job</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/job">Job Summary</a></li>
+                        <li class="disabled"><a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/#">Disconnect</a>
+                        </li><li role="separator" class="divider"></li>
+                        <li class="disabled"><a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/#">Search for tasks</a></li>
+                        <li><a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/unlock">Unlock tasks</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/report">User Reports</a></li>
+                        <li><a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/export">Export Configs</a></li>
+                        <li><a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/queue">Queue Counts</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://prod.txqweb.rrd.com/AvivaTxQUCWeb/#">About</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="toast-container" ng-class="[config.position, config.animation]" toaster-options="{&#39;time-out&#39;:3000, &#39;close-button&#39;:false}" class="ng-scope toast-top-right"><!-- ngRepeat: toaster in toasters --></div>
+<div class="container-fluid body-content slide-container">
+    <!-- ngView:  --><div ng-view="" class="slide-animation ng-scope" style="">
+
+<div class="reports-view ng-scope">
+    <div class="row">
+        <div class="col-xs-offset-0 col-xs-5 ">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4 class="panel-title"> Report Criteria</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row mb5">
+                        <div class="col-xs-2 pdt2">
+                            Date From:
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-valid-date" uib-datepicker-popup="" ng-model="idx1_DatetimeValue" show-weeks="false" is-open="$is_idx1DateOpen" close-text="Close" datepicker-append-to-body="true" ng-change="main.setDateFrom(idx1_DatetimeValue)">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn" ng-click="$is_idx1DateOpen=true"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-2"></div>
+
+                        <div class="col-xs-2 pdt2">
+                            Date To:
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-valid-date" uib-datepicker-popup="" ng-model="idx2_DatetimeValue" show-weeks="false" is-open="$is_idx2DateOpen" close-text="Close" datepicker-append-to-body="true" ng-change="main.setDateTo(idx2_DatetimeValue)">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn" ng-click="$is_idx2DateOpen=true"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row mb5">
+
+                        <div class="col-xs-2 pdt2">
+                            Report Name:
+                        </div>
+                        <div class="col-xs-4">
+                            <select id="ReportName" class="form-control ng-valid ng-dirty ng-valid-parse ng-touched" ng-model="idx3.ComboboxValue" ng-change="main.setReportName(idx3.ComboboxValue)" style="">
+                                <option value="">--Please Select--</option>
+                                <option value="ImportDetail">Import Detail</option>
+                                <option value="ImportSummary">Import Summary</option>
+                                <option value="ExportDetail">Export Detail</option>
+                                <option value="ExportSummary">Export Summary</option>
+                                <option value="BatchReconcile">Batch Reconciliation</option>
+                                <option value="BatchReconcileComplete">Batch Reconciliation - Complete</option>
+                                <option value="BatchReconcileOutstanding">Batch Reconciliation - Outstanding</option>
+                                <option value="OpStatDetail">Operator Stats Detail</option>
+                                <option value="OpStatSummary">Operator Stats Summary</option>
+                                <option value="OpStatSummaryByQueue">Operator Stats Summary by Queue</option>
+                            </select>
+                        </div>
+
+                        <div class="pull-right">
+                            <button class="btn btn-default" ng-click="main.selectReport()">Generate Report</button>
+                            <div class="col-xs-2"></div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div ng-show="IsLoadingData" class="ng-hide" style="">
+            <div class="loading-panel"> <img src="./789_files/loading.gif" alt="loading panel">
+</div>
+
+        </div>
+        <div ng-hide="IsLoadingData" class="list-body" style="">
+            <div ng-show="Model" class="" style="">
+                <div class="list-group" ng-show="rptItem.ReportData.length &gt; 0" style="">
+                    <div class="h4 ng-binding">&nbsp;&nbsp; Results Found: 12</div>
+                        <div class="list-group-item no-border">
+                            <table class="table-report">
+                                <tbody><tr>
+                                    <th class="h4 ng-binding" ng-show="rptItem.FieldCount &gt;= 1" style="">Date Completed</th>
+                                    <th class="h4 ng-binding" ng-show="rptItem.FieldCount &gt;= 2">User Name</th>
+                                    <th class="h4 ng-binding" ng-show="rptItem.FieldCount &gt;= 3">Queue Completed To</th>
+                                    <th class="h4 ng-binding" ng-show="rptItem.FieldCount &gt;= 4">Tasks Completed</th>
+                                    <th class="h4 ng-binding" ng-show="rptItem.FieldCount &gt;= 5">Total Task Time</th>
+                                    <th class="h4 ng-binding" ng-show="rptItem.FieldCount &gt;= 6">Average Task Time (s)</th>
+                                    <th class="h4 ng-binding ng-hide" ng-show="rptItem.FieldCount &gt;= 7"></th>
+                                    <th class="h4 ng-binding ng-hide" ng-show="rptItem.FieldCount &gt;= 8"></th>
+                                    <th class="h4 ng-binding ng-hide" ng-show="rptItem.FieldCount &gt;= 9"></th>
+                                    <th class="h4 ng-binding ng-hide" ng-show="rptItem.FieldCount &gt;= 10"></th>
+                                    <th class="h4 ng-binding ng-hide" ng-show="rptItem.FieldCount &gt;= 11"></th>
+                                    <th class="h4 ng-binding ng-hide" ng-show="rptItem.FieldCount &gt;= 12"></th>
+                                    <th class="h4 ng-binding ng-hide" ng-show="rptItem.FieldCount &gt;= 13"></th>
+                                    <th class="h4 ng-binding ng-hide" ng-show="rptItem.FieldCount &gt;= 14"></th>
+                                    <th class="h4 ng-binding ng-hide" ng-show="rptItem.FieldCount &gt;= 15"></th>
+                                </tr>
+                                <!-- ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope" style="">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\rr177335</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE Indexing Queue - Offshore</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">63</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\rr324701</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE Indexing Queue - Offshore</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">118</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\rr324702</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE Indexing Queue - Offshore</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">60</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\RR329852</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE Indexing Queue - Offshore</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">15</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\RR329852</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE QC Queue</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">286</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\rr330180</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE Indexing Queue - Offshore</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">39</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\rr503847</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">GI Indexing Queue - Offshore</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">43</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\rr503847</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE Indexing Queue - Offshore</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">60</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\rr503915</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">GI Review Queue</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">9</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">AS\rr503915</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE Indexing Queue - Offshore</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">66</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">EU\rr246158</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE Delete Queue</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">22</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData --><tr ng-repeat="report in rptItem.ReportData" class="ng-scope">
+                                    <td ng-show="rptItem.FieldCount &gt;= 1" class="ng-binding">2019-10-17</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 2" class="ng-binding">EU\rr246158</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 3" class="ng-binding">LIFE Print Queue (Aviva)</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 4" class="ng-binding">27</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 5" class="ng-binding">00:00:00</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 6" class="ng-binding">1</td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 7" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 8" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 9" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 10" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 11" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 12" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 13" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 14" class="ng-binding ng-hide"></td>
+                                    <td ng-show="rptItem.FieldCount &gt;= 15" class="ng-binding ng-hide"></td>
+                                </tr><!-- end ngRepeat: report in rptItem.ReportData -->
+                            </tbody></table>
+                        </div>
+                    </div>
+                    <div class="text-center ng-hide" ng-hide="rptItem.ReportData.length &gt; 0" style="">
+                        Available report data not found
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+<footer class="navbar navbar-default  navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="footer">
+            <div class="row">
+                <div class="col-xs-6">Powered by RR Donnelley</div>
+                <div class="col-xs-6 ">
+                    <div class="pull-right" style="margin-left:30px;"><span class="glyphicon glyphicon-link"></span>&nbsp;<span ng-bind="Application.isJobConnected()?&#39;Connected to &#39;+Application.CurrentJob.Description:&#39;Not connected&#39;" class="ng-binding">Connected to Aviva Live</span></div>
+                        <div class="pull-right"><span class="glyphicon glyphicon-user"></span>&nbsp; User: AS\rr265161</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+    
+
+<script type="text/ng-template" id="confirmDialog.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Confirm operation</h3>
+    </div>
+    <div class="modal-body">
+        <div ng-bind="Args.ConfirmMsg"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="dlgCtrl.ok()">OK</button>
+        <button class="btn btn-warning" type="button" ng-click="dlgCtrl.cancel()">Cancel</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="warningDialog.html">
+    <div class="modal-header alert-danger">
+        <h3 class="modal-title">Warning</h3>
+    </div>
+    <div class="modal-body">
+        <div ng-bind="Args.WarningMsg"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="dlgCtrl.cancel()">OK</button>
+    </div>
+</script>
+
+    <script type="text/javascript">
+        var BaseURL = "/AvivaTxQUCWeb/";
+        var BaseApiURL = "/AvivaTxQUCWeb/api/";
+    </script>
+    <script src="./789_files/scripts"></script>
+
+    
+
+
+<!-- ngIf: isOpen --><!-- ngIf: isOpen --></body></html>
